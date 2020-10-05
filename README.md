@@ -17,6 +17,14 @@ ___
 The textbook for this class was specially designed and is hosted on zyBooks to allow for interactive programming while learning the concepts
 <br />
 
+### VS Code Python Extension
+I am using the Python extension for Visual Studion Code which includes the ability to create python cells which can be individually run in an interactive window. The syntax to create a cell is as follows: 
+```python
+#%%
+```
+Any line with these three characters on it denotes the beginning of a python cell and is included due to the utilization of the python extension.
+<br />
+
 ___
 ## Assignments
 ### Module 1: Python Program to Add Two Numbers
