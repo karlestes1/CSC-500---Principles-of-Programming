@@ -5,7 +5,7 @@
 # This program prompts a user to input two integers and, given those two numbers, adds them together to find the output
 # It also subtracts the two numbers to find the output
 
-# I am using the Python extension for Visual Studion Code which includes the ability to create python cells 
+# I am using the Python extension for Visual Studio Code which includes the ability to create python cells 
 # which can be individually run in an interactive window. 
 # The syntax to create a cell is as follows: #%%
 # Any line with these three characters on it denotes the beginning of a 
@@ -39,4 +39,4 @@ while redoInput:
 print('The sum of', num1, 'and', num2, 'is', num1 + num2)
 
 # Prints the difference of the two numbers
-print('The difference of', num1, 'and', num2, 'is', num1 - num2)
+print('The difference between', num1, 'and', num2, 'is', num1 - num2)
