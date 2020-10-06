@@ -26,6 +26,7 @@ Any line with these three characters on it denotes the beginning of a python cel
 <br />
 
 ___
+<!--When doing relative paths, if a file or dir name has a space, use %20 in place of the space-->
 ## Assignments
 ### Module 1: [Python Program to Add Two Numbers](Module%201/addTwoNums.py)
 - A simple python program to find the addition and subtraction of two numbers
