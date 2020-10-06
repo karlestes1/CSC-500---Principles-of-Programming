@@ -27,11 +27,11 @@ Any line with these three characters on it denotes the beginning of a python cel
 
 ___
 ## Assignments
-### Module 1: [Python Program to Add Two Numbers](Module\ 1/addTwoNums.py)
+### Module 1: [Python Program to Add Two Numbers](Module%201/addTwoNums.py)
 - A simple python program to find the addition and subtraction of two numbers
 - Asks the user to input two numbers, performs simple mathematical operations on the inputs, and displays the resulting output
 
-### Module 2: [Retail Total](Module\ 1/addTwoNums.py)
+### Module 2: [Retail Total](Module%202/addTwoNums.py)
 - A python program that prompts the user to input prices for 5 different items
 - Calculates the subtotal of those item costs and the total with a 7% sales tax
 - Outputs the results to the terminal
