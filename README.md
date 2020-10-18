@@ -37,3 +37,8 @@ ___
 - Calculates the subtotal of those item costs and the total with a 7% sales tax
 - Outputs the results to the terminal
 - I went overboard and added some ascii art
+
+### Module 3: [Alarm Time](Module%203/alarmTime.py)
+- A python program displays the current time (H, D, M, Y) and asks the user how many hours to wait
+- Calculates what hour, day, month, and year it will be after that many hours and outputs to the terminal
+- I continued the Ascii Art title theme
