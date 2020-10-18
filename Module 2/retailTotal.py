@@ -1,4 +1,4 @@
-# Python Program to Add and Subtract Two Numbers
+# Python Program to calculate the retail total of a few items
 # Created by Karl Estes
 # Created: Tuesday, October 6th, 2020
 
