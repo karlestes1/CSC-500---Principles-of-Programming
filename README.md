@@ -32,7 +32,7 @@ ___
 - A simple python program to find the addition and subtraction of two numbers
 - Asks the user to input two numbers, performs simple mathematical operations on the inputs, and displays the resulting output
 
-### Module 2: [Retail Total](Module%202/addTwoNums.py)
+### Module 2: [Retail Total](Module%202/retailTotal.py)
 - A python program that prompts the user to input prices for 5 different items
 - Calculates the subtotal of those item costs and the total with a 7% sales tax
 - Outputs the results to the terminal
