@@ -1,6 +1,6 @@
 # CSC 500 - Principles of Programming
 
-**Disclaimer:** These project were built as a requirement for CSC 500: Principles of Programming through Colorado State University Global under the instruction of Dr. Lori Farr. Unless otherwise noted, all programs were created to adhere to explicit guidelines as outlined in the assignment requirements I was given. Descriptions of each assignment can be found below.
+**Disclaimer:** These project were built as a requirement for CSC 500: Principles of Programming through Colorado State University Global under the instruction of Dr. Lori Farr. Unless otherwise noted, all programs were created to adhere to explicit guidelines as outlined in the assignment requirements I was given. Descriptions of each [programming assignment](#programming-assignments) and the [portfolio project](#portfolio-project-(shopping-cart)) can be found below.
 
 *****This repository is actively being updated and will be archived upon my completion of the class*****
 ___
@@ -27,7 +27,7 @@ Any line with these three characters on it denotes the beginning of a python cel
 
 ___
 <!--When doing relative paths, if a file or dir name has a space, use %20 in place of the space-->
-## Assignments
+## Programming Assignments
 ### Module 1: [Python Program to Add Two Numbers](Module%201/addTwoNums.py)
 - A simple python program to find the addition and subtraction of two numbers
 - Asks the user to input two numbers, performs simple mathematical operations on the inputs, and displays the resulting output
@@ -42,3 +42,18 @@ ___
 - A python program displays the current time (H, D, M, Y) and asks the user how many hours to wait
 - Calculates what hour, day, month, and year it will be after that many hours and outputs to the terminal
 - I continued the Ascii Art title theme
+
+___
+## Portfolio Project (Shopping Cart)
+The portfolio project is final project of the class and consists of two milestones and the final submission. Descriptions of each and their requirements are listed below
+
+### Milestone 1
+#### Requirements Include:
+- A class called ItemToPurchase with the following:
+    - Attributes
+        - item name (string)
+        - item price (float)
+        - item quantity (int)
+    - A default constructor 
+    - A method to print the item cost
+- Prompt the user to enter the price and quantity of two items, and output the total cost to the screen
