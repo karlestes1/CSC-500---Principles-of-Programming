@@ -1,6 +1,6 @@
 # CSC 500 - Principles of Programming
 
-**Disclaimer:** These project were built as a requirement for CSC 500: Principles of Programming through Colorado State University Global under the instruction of Dr. Lori Farr. Unless otherwise noted, all programs were created to adhere to explicit guidelines as outlined in the assignment requirements I was given. Descriptions of each [programming assignment](#programming-assignments) and the [portfolio project](#portfolio-project-(shopping-cart)) can be found below.
+**Disclaimer:** These project were built as a requirement for CSC 500: Principles of Programming through Colorado State University Global under the instruction of Dr. Lori Farr. Unless otherwise noted, all programs were created to adhere to explicit guidelines as outlined in the assignment requirements I was given. Descriptions of each [programming assignment](#programming-assignments) and the [portfolio project](#portfolio-project) can be found below.
 
 *****This repository is actively being updated and will be archived upon my completion of the class*****
 ___
@@ -44,8 +44,8 @@ ___
 - I continued the Ascii Art title theme
 
 ___
-## Portfolio Project (Shopping Cart)
-The portfolio project is final project of the class and consists of two milestones and the final submission. Descriptions of each and their requirements are listed below
+## Portfolio Project
+The portfolio project is final project of the class and consists of two milestones and the final submission. The project centers around creating a shopping cart where users can buy items and it will calculate the total cost of the entire cart. Descriptions of each milestone and their requirements are listed below
 
 ### Milestone 1
 #### Requirements Include:
