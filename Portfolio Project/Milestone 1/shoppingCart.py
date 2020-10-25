@@ -11,9 +11,11 @@
 # this extension
 
 #Import Statements 
+from os import system, name
 
+#!SECTION
 
-#%% ItemToPurchase class
+#SECTION - ItemToPurchase class
 
 class ItemToPurchase:
 
@@ -29,5 +31,94 @@ class ItemToPurchase:
     '''
     def printItemCost(self):
         print(self.price)
+    
+    '''
+    Will return the item name
+    '''
+    def getItemName(self):
+        return self.name
 
-#%%% Extra Functions
+#!SECTION
+
+#SECTION - Program Functions
+'''
+Prints a welcome message when the program starts
+Also clears the console on program start
+'''
+def welcomeMessage():
+
+    # For windows
+    if name == 'nt':
+        _ = system('cls')
+    # Mac and linux 
+    else:
+        _ = system('clear')
+
+    print("   _           ")
+    print(r"    \________   ____  _  _   __  ____  ____  __  __ _   ___     ___   __   ____  ____ ")
+    print(r" ~   \######/  / ___)/ )( \ /  \(  _ \(  _ \(  )(  ( \ / __)   / __) / _\ (  _ \(_  _)")      
+    print(r"  ~   |####/   \___ \) __ ((  O )) __/ ) __/ )( /    /( (_ \  ( (__ /    \ )   /  )(  ")
+    print(r" ~    |____.   (____/\_)(_/ \__/(__)  (__)  (__)\_)__) \___/   \___)\_/\_/(__\_) (__) ")
+    print("      o    o   \n")
+    print("Developed by Karl Estes")
+    print("Created as per Portfolio Milestone 1 instructions in CSC 500 at CSUG\n\n")
+    print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \n")
+
+
+'''
+Prompts the user to fill out an items details
+Returns the completed item at the end
+'''
+def getItemDetails():
+
+    # Variables
+    newItem = ItemToPurchase()
+    valid = False # Used to check if input is valid
+
+    # Prompt the user for info
+    newItem.name = input('Please enter an item name as you want it to appear: ')
+
+    print('Please enter the price of', newItem.getItemName(),  'in USD: $', end='')
+    newPrice = input()
+
+    # Loop until valid input is reached
+    while not valid:
+        try:
+            newItem.price = float(newPrice)
+            valid = True
+        except ValueError:
+            print('(Invalid Input) Please enter the price of', newItem.getItemName(),  'in USD: $', end='')
+            newPrice = input()
+
+    valid = False
+    print('Please enter the quantitiy of', newItem.getItemName(), ': ', end='')
+    newQuantity = input()
+
+    # Loop until valid input is reached
+    while not valid:
+        try:
+            newItem.quantity = int(newQuantity)
+            valid = True
+        except ValueError:
+            print('(Invalid Input) Please enter the quantitiy of', newItem.getItemName(), ': ', end='')
+            newQuantity = input()
+
+    return newItem
+
+
+#!SECTION
+
+# SECTION - Main
+
+if __name__ == "__main__":
+
+    welcomeMessage()
+
+    print("---First Item---")
+    item1 = getItemDetails()
+    print('\n---Second Item---')
+    item2 = getItemDetails()
+
+
+#!SECTION
+# %%
