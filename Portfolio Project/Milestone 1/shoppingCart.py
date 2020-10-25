@@ -26,26 +26,20 @@ class ItemToPurchase:
         self.quantity = 0
 
     # Methods
-    '''
-    Will print out the current cost of the item
-    '''
+
+    # Prints out the current cost of the item
     def printItemCost(self):
-        print(self.price)
-    
-    '''
-    Will return the item name
-    '''
-    def getItemName(self):
-        return self.name
+        print(self.quantity, self.name, "@ ${:.2f} = ${:.2f}".format(self.price, (self.price * self.quantity)))
+
 
 #!SECTION
 
 #SECTION - Program Functions
-'''
-Prints a welcome message when the program starts
-Also clears the console on program start
-'''
 def welcomeMessage():
+    """
+    Prints a welcome message when the program starts\n
+    Also clears the console on program start
+    """
 
     # For windows
     if name == 'nt':
@@ -65,11 +59,10 @@ def welcomeMessage():
     print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \n")
 
 
-'''
-Prompts the user to fill out an items details
-Returns the completed item at the end
-'''
 def getItemDetails():
+    """
+    Prompts the user to fill out an items details and returns the completed item at the end
+    """
 
     # Variables
     newItem = ItemToPurchase()
@@ -78,7 +71,7 @@ def getItemDetails():
     # Prompt the user for info
     newItem.name = input('Please enter an item name as you want it to appear: ')
 
-    print('Please enter the price of', newItem.getItemName(),  'in USD: $', end='')
+    print('Please enter the price of', newItem.name,  'in USD: $', end='')
     newPrice = input()
 
     # Loop until valid input is reached
@@ -87,11 +80,11 @@ def getItemDetails():
             newItem.price = float(newPrice)
             valid = True
         except ValueError:
-            print('(Invalid Input) Please enter the price of', newItem.getItemName(),  'in USD: $', end='')
+            print('(Invalid Input) Please enter the price of', newItem.name,  'in USD: $', end='')
             newPrice = input()
 
     valid = False
-    print('Please enter the quantitiy of', newItem.getItemName(), ': ', end='')
+    print('Please enter the quantitiy of', newItem.name, ': ', end='')
     newQuantity = input()
 
     # Loop until valid input is reached
@@ -100,11 +93,10 @@ def getItemDetails():
             newItem.quantity = int(newQuantity)
             valid = True
         except ValueError:
-            print('(Invalid Input) Please enter the quantitiy of', newItem.getItemName(), ': ', end='')
+            print('(Invalid Input) Please enter the quantitiy of', newItem.name, ': ', end='')
             newQuantity = input()
 
     return newItem
-
 
 #!SECTION
 
@@ -118,6 +110,16 @@ if __name__ == "__main__":
     item1 = getItemDetails()
     print('\n---Second Item---')
     item2 = getItemDetails()
+
+    totalItem1 = item1.price * item1.quantity
+    totalItem2 = item2.price * item2.quantity
+    
+    print("\n\n* * * * * * * * * * * * * *")
+    print("        Total Cost\n")
+    item1.printItemCost()
+    item2.printItemCost()
+    print("\nTotal = ${:.2f}".format(((item1.price * item1.quantity) + (item2.price * item2.quantity))))
+
 
 
 #!SECTION
