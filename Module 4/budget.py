@@ -1,4 +1,4 @@
-# Option 2 CSC500 Portfolio Project - Budget Program
+# Option 2 CSC500 Module 4 - Budget Program
 # Created by Karl Estes
 # Created: Monday, October 26th, 2020
 
@@ -30,7 +30,6 @@ def getCurMonth():
     now = datetime.now()
     return (now.strftime("%B"))
 
-# TODO - Function to prompt user for input
 def getUserExpenses():
     """
     Asks the user what their budget for the month was and how much they spent in a number of predefined categories\n
@@ -105,7 +104,31 @@ def outputResults(expenseList, monthlyBudget):
 
 # SECTION - Extra Functions
 
-# TODO - Create welcome message
+def welcomeMessage():
+    """
+    Prints a welcome message when the program starts\n
+    Also clears the console on program start
+    """
+
+    # For windows
+    if name == 'nt':
+        _ = system('cls')
+    # Mac and linux 
+    else:
+        _ = system('clear')
+        
+
+    # Diamond ascii art is from asciiart.eu and was crated by Donovan Blake
+    # Font for ascii title was generated on patorjk.com with the Text to ASCII Art Generator (TAAG)
+    print(r" .     '     ,  ██████  ██    ██ ██████   ██████  ███████ ████████ ██ ███    ██  ██████  ")
+    print(r"   _________    ██   ██ ██    ██ ██   ██ ██       ██         ██    ██ ████   ██ ██       ")
+    print(r"_ /_|_____|_\ _ ██   ██ ██    ██ ██   ██ ██       ██         ██    ██ ████   ██ ██       ")
+    print(r"  '. \   / .'   ██████  ██    ██ ██   ██ ██   ███ █████      ██    ██ ██ ██  ██ ██   ███ ")
+    print(r"    '.\ /.'     ██   ██ ██    ██ ██   ██ ██    ██ ██         ██    ██ ██  ██ ██ ██    ██ ")
+    print(r"      '.'       ██████   ██████  ██████   ██████  ███████    ██    ██ ██   ████  ██████  ")
+    print("Developed by Karl Estes")
+    print("Created as per Module 4 instructions in CSC 500 at CSUG\n\n")
+    print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \n")
 
 # !SECTION
 
@@ -114,8 +137,7 @@ def outputResults(expenseList, monthlyBudget):
 # SECTION - Main
 
 if __name__ == "__main__":
-    # TODO - Call welcome message
-    # TODO - Call program functions
+    welcomeMessage()
     expenses, monthBudget = getUserExpenses()
     outputResults(expenses, monthBudget)
 
