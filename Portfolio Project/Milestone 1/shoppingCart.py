@@ -13,8 +13,6 @@
 #Import Statements 
 from os import system, name
 
-#!SECTION
-
 #SECTION - ItemToPurchase class
 
 class ItemToPurchase:

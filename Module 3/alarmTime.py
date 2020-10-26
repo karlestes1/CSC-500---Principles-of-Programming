@@ -4,13 +4,7 @@
 
 # This program displays the current date and time (hour only) and prompts the user to enter
 # how many hours they would like to wait. The program them tells the user what day and time
-# it will be when the 'alarm' would go off
-
-# I am using the Python extension for Visual Studio Code which includes the ability to create python cells 
-# which can be individually run in an interactive window. 
-# The syntax to create a cell is as follows: #%%
-# Any line with these three characters on it denotes the beginning of a 
-# python cell and is included due to the utilization of the python extension. 
+# it will be when the 'alarm' would go off 
 
 from os import system, name
 from datetime import datetime, timedelta
