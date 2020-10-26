@@ -18,11 +18,14 @@ The textbook for this class was specially designed and is hosted on zyBooks to a
 <br />
 
 ### VS Code Python Extension
-I am using the Python extension for Visual Studion Code which includes the ability to create python cells which can be individually run in an interactive window. The syntax to create a cell is as follows: 
+I am using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studion Code which includes the ability to create python cells which can be individually run in an interactive window. The syntax to create a cell is as follows: 
 ```python
 #%%
 ```
 Any line with these three characters on it denotes the beginning of a python cell and is included due to the utilization of the python extension.
+
+### VS Code Comment Anchors Extension
+I am also using the [Comment Anchors extension](https://marketplace.visualstudio.com/items?itemName=ExodiusStudios.comment-anchors) for Visual Studio Code which places anchors within comments to allow for easy navigation and the ability to track TODO's, code reviews, etc. 
 <br />
 
 ___
@@ -42,6 +45,11 @@ ___
 - A python program displays the current time (H, D, M, Y) and asks the user how many hours to wait
 - Calculates what hour, day, month, and year it will be after that many hours and outputs to the terminal
 - I continued the Ascii Art title theme
+
+### Module 4: [Budgeting](Module%204/budget.py)
+- A python program that asks the user for a budget and expenses for the current month
+- Outputs what the user spent in each category, the total expenses, and a message on whether or not the user was within their budget range and by how much
+- Added some nice color to some of the terminal messages cause why not!
 
 ___
 ## Portfolio Project
