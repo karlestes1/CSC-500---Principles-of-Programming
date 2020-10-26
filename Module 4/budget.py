@@ -83,7 +83,6 @@ def getUserExpenses():
 
     return userExpenses, userBudget 
 
-# TODO - Write function to output results
 def outputResults(expenseList, monthlyBudget):
     """
     Takes a list of user expenses and the budget for the month\n
@@ -101,14 +100,15 @@ def outputResults(expenseList, monthlyBudget):
     for category, expense in zip(budgetCategories, expenseList):
         print("\t" + BOLD + category + NOCOLOR + ": ${:.2f}".format(expense))
 
-    print("\n")
+    print(BOLD + "\tTOTAL: ${:.2f}\n".format(totalExpenses) + NOCOLOR)
+
     # Print out budget result
     if totalExpenses > monthlyBudget:
-        print(BRIGHT_RED + "\tYou are over budget by ${:.2f}\n".format(totalExpenses - monthlyBudget) + NOCOLOR)
+        print(BRIGHT_RED + "\tYou are over your budget of ${:.2f} by ${:.2f}\n".format(monthlyBudget, totalExpenses - monthlyBudget) + NOCOLOR)
     elif totalExpenses == monthlyBudget:
-        print(BOLD + "\tYou have spent your exact budget amount\n" + NOCOLOR)
+        print(BOLD + "\tYou have spent your exact budget amount!\n" + NOCOLOR)
     else:
-        print(BIRGHT_GREEN + "\tYou are under budget by ${:.2f}\n".format(monthlyBudget - totalExpenses) + NOCOLOR)
+        print(BIRGHT_GREEN + "\tYou are under your budget of ${:.2f} by ${:.2f}\n".format(monthlyBudget, monthlyBudget - totalExpenses) + NOCOLOR)
 
 # !SECTION
 
