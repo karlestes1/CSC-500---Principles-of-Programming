@@ -18,7 +18,8 @@ from datetime import datetime
 
 budgetCategories = ['Gas/Feul', 'Dining', 'Food/Grocery', 'Water', 'Electricity', 'Automotive']
 BRIGHT_RED = "\033[1;31m"
-BIRGHT_GREEN = "\033[1;32m"
+BRIGHT_GREEN = "\033[1;32m"
+BRIGHT_BLUE = "\033[1;34m"
 BOLD = "\033[1;37m"
 NOCOLOR = "\033[m"
 
@@ -108,7 +109,7 @@ def outputResults(expenseList, monthlyBudget):
     elif totalExpenses == monthlyBudget:
         print(BOLD + "\tYou have spent your exact budget amount!\n" + NOCOLOR)
     else:
-        print(BIRGHT_GREEN + "\tYou are under your budget of ${:.2f} by ${:.2f}\n".format(monthlyBudget, monthlyBudget - totalExpenses) + NOCOLOR)
+        print(BRIGHT_GREEN + "\tYou are under your budget of ${:.2f} by ${:.2f}\n".format(monthlyBudget, monthlyBudget - totalExpenses) + NOCOLOR)
 
 # !SECTION
 
@@ -130,15 +131,15 @@ def welcomeMessage():
 
     # Diamond ascii art is from asciiart.eu and was crated by Donovan Blake
     # Font for ascii title was generated on patorjk.com with the Text to ASCII Art Generator (TAAG)
-    print(r" .     '     ,  ██████  ██    ██ ██████   ██████  ███████ ████████ ██ ███    ██  ██████  ")
+    print(BRIGHT_BLUE + r" .     '     ,  ██████  ██    ██ ██████   ██████  ███████ ████████ ██ ███    ██  ██████  ")
     print(r"   _________    ██   ██ ██    ██ ██   ██ ██       ██         ██    ██ ████   ██ ██       ")
     print(r"_ /_|_____|_\ _ ██   ██ ██    ██ ██   ██ ██       ██         ██    ██ ████   ██ ██       ")
     print(r"  '. \   / .'   ██████  ██    ██ ██   ██ ██   ███ █████      ██    ██ ██ ██  ██ ██   ███ ")
     print(r"    '.\ /.'     ██   ██ ██    ██ ██   ██ ██    ██ ██         ██    ██ ██  ██ ██ ██    ██ ")
-    print(r"      '.'       ██████   ██████  ██████   ██████  ███████    ██    ██ ██   ████  ██████  ")
-    print("\nDeveloped by Karl Estes")
+    print(r"      '.'       ██████   ██████  ██████   ██████  ███████    ██    ██ ██   ████  ██████  " + NOCOLOR)
+    print(BOLD + "\nDeveloped by Karl Estes")
     print("Created as per Module 4 instructions in CSC 500 at CSUG\n\n")
-    print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \n")
+    print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \n" + NOCOLOR)
 
 # !SECTION
 
