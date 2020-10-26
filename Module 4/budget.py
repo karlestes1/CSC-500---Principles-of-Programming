@@ -17,6 +17,11 @@ from os import system, name
 from datetime import datetime
 
 budgetCategories = ['Gas/Feul', 'Dining', 'Food/Grocery', 'Water', 'Electricity', 'Automotive']
+BRIGHT_RED = "\033[1;31m"
+BIRGHT_GREEN = "\033[1;32m"
+BOLD = "\033[1;37m"
+NOCOLOR = "\033[m"
+
 
 
 # !SECTION
@@ -41,7 +46,7 @@ def getUserExpenses():
     curMonth = getCurMonth()
 
     # Ask user for budget for the month
-    print("How much have you budgeted for the month of " + curMonth + "?\n>> $", end="")
+    print("How much have you budgeted for the month of " + BOLD + curMonth + NOCOLOR + "?\n>> $", end="")
     userInput = input()
 
     valid = False
@@ -52,7 +57,7 @@ def getUserExpenses():
             userBudget = float(userInput)
             valid = True
         except ValueError:
-            print("(Invalid Input) How much have you budgeted for the month of " + curMonth + "?\n>> $", end="")
+            print(BRIGHT_RED + "(Invalid Input)" + NOCOLOR + " How much have you budgeted for the month of " + BOLD + curMonth + NOCOLOR + "?\n>> $", end="")
             userInput = input()
             pass
 
@@ -62,7 +67,7 @@ def getUserExpenses():
     for category in budgetCategories:
         valid = False
 
-        print("How much have you spent on " + category + " this month?\n>> $", end="")
+        print("How much have you spent on " + BOLD + category + NOCOLOR + " for " + curMonth + "?\n>> $", end="")
         userInput = input()
 
         # Continue to prompt until valid input is reached
@@ -72,7 +77,7 @@ def getUserExpenses():
                 userExpenses.append(expense)
                 valid = True
             except ValueError:
-                print("(Invalid Input) How much have you spent on " + category + " this month?\n>> $", end="")
+                print(BRIGHT_RED + "(Invalid Input)" + NOCOLOR + " How much have you spent on " + BOLD + category + NOCOLOR + " for " + curMonth + "?\n>> $", end="")
                 userInput = input()
                 pass
 
@@ -85,20 +90,25 @@ def outputResults(expenseList, monthlyBudget):
     Outputs a list of the expenses and if the user was under or over the budget and by how much
     """
 
+    curMonth = getCurMonth()
+
     # Calculate total amount spent
     totalExpenses = sum(expenseList)
 
+    print("\n* * * * " + BOLD + curMonth + " Budget Results" + NOCOLOR + " * * * *\n")
+
     # Prints all the categories and expenses
     for category, expense in zip(budgetCategories, expenseList):
-        print("\t" + category + ": ${:.2f}".format(expense))
+        print("\t" + BOLD + category + NOCOLOR + ": ${:.2f}".format(expense))
 
+    print("\n")
     # Print out budget result
     if totalExpenses > monthlyBudget:
-        print("You are over budget by ${:.2f}".format(totalExpenses - monthlyBudget))
+        print(BRIGHT_RED + "\tYou are over budget by ${:.2f}\n".format(totalExpenses - monthlyBudget) + NOCOLOR)
     elif totalExpenses == monthlyBudget:
-        print("You have spent your exact budget amount")
+        print(BOLD + "\tYou have spent your exact budget amount\n" + NOCOLOR)
     else:
-        print("You are under budget by ${:.2f}".format(monthlyBudget - totalExpenses))
+        print(BIRGHT_GREEN + "\tYou are under budget by ${:.2f}\n".format(monthlyBudget - totalExpenses) + NOCOLOR)
 
 # !SECTION
 
@@ -126,7 +136,7 @@ def welcomeMessage():
     print(r"  '. \   / .'   ██████  ██    ██ ██   ██ ██   ███ █████      ██    ██ ██ ██  ██ ██   ███ ")
     print(r"    '.\ /.'     ██   ██ ██    ██ ██   ██ ██    ██ ██         ██    ██ ██  ██ ██ ██    ██ ")
     print(r"      '.'       ██████   ██████  ██████   ██████  ███████    ██    ██ ██   ████  ██████  ")
-    print("Developed by Karl Estes")
+    print("\nDeveloped by Karl Estes")
     print("Created as per Module 4 instructions in CSC 500 at CSUG\n\n")
     print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \n")
 
