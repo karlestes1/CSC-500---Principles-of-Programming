@@ -47,7 +47,7 @@ ___
 ## Portfolio Project
 The portfolio project is final project of the class and consists of two milestones and the final submission. The project centers around creating a shopping cart where users can buy items and it will calculate the total cost of the entire cart. Descriptions of each milestone and their requirements are listed below
 
-### Milestone 1
+### [Milestone 1](Portfolio%20Project/Milestone%201/shoppingCart.py)
 #### Requirements Include:
 - A class called ItemToPurchase with the following:
     - Attributes
