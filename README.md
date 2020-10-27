@@ -51,6 +51,11 @@ ___
 - Outputs what the user spent in each category, the total expenses, and a message on whether or not the user was within their budget range and by how much
 - Added some nice color to some of the terminal messages cause why not!
 
+### Module 5: [Mixing Colors (WIP)](Module%205/mixingColors.py)
+- A python program which prompts the user to enter the name of two primary colors
+- Outputs what color the resulting mixture would produce
+- (WIP) I will try and color code what I can
+<!--TODO - Update once Program is completely coded-->
 ___
 ## Portfolio Project
 The portfolio project is final project of the class and consists of two milestones and the final submission. The project centers around creating a shopping cart where users can buy items and it will calculate the total cost of the entire cart. Descriptions of each milestone and their requirements are listed below
