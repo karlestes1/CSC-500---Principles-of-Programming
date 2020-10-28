@@ -15,19 +15,74 @@
 
 # SECTION - Imports and variables
 from os import system, name
+
+# TODO color codes
 # !SECTION
 
 # SECTION - Functions
+
+def handleInput(userInput):
+    """
+    Processes input from the console\n
+    Returns -1 on error, 0 on quit, 1 on red, 2 on blue, and 3 on green
+    """
+    
+    try:
+        lowString = userInput.lower()
+        
+        if lowString == "red":
+            return 1
+        elif lowString == "green":
+            return 2
+        elif lowString == "blue":
+            return 3
+        elif lowString == "q" or lowString == "quit":
+            return 0
+        else:
+            return -1
+    except ValueError:
+        return -1
 
 # !SECTION
 
 # SECTION - Main
 
 if __name__ == "__main__":
+    exitProg = False
+    validInput = True
+    colors = []
+
     # TODO - Welcome Message
-    # TODO - Infinite Loop 
-    # TODO - Get Colors
-    # TODO - Exit conditions
+
+    while exitProg is False:
+        userInput = ''
+        
+        # Get user input
+        # TODO print selected colors
+        if validInput is True:
+            print("(colors here) Please enter a primary color\n >> ", end='')        
+            userInput = input()
+        else:
+            print("(colors here) (Invalid Input) Please enter a primary color\n>> ", end='')
+            userInput = input()
+        
+        # Process input
+        check = handleInput(userInput)
+        
+        if check is -1:
+            validInput = False
+        elif check is 0:
+            exitProg = True
+        elif check is 1 or check is 2 or check is 3:
+            colors.append(check)
+        else:
+            print("Invalid check value")
+
+
+        if len(colors) is 2:
+            # TODO - mix Colors
+            exitProg = True
+
 
 # !SECTION
     
