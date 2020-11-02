@@ -69,17 +69,17 @@ if __name__ == "__main__":
         # Process input
         check = handleInput(userInput)
         
-        if check is -1:
+        if check == -1:
             validInput = False
-        elif check is 0:
+        elif check == 0:
             exitProg = True
-        elif check is 1 or check is 2 or check is 3:
+        elif check == 1 or check == 2 or check == 3:
             colors.append(check)
         else:
             print("Invalid check value")
 
 
-        if len(colors) is 2:
+        if len(colors) == 2:
             # TODO - mix Colors
             exitProg = True
 
