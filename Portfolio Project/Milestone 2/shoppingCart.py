@@ -13,6 +13,7 @@
 
 #Import Statements 
 from os import system, name
+from datetime import datetime
 
 #SECTION - Classes
 
@@ -106,8 +107,18 @@ def welcomeMessage():
     print("Developed by Karl Estes")
     print("Created as per Portfolio Milestone 1 instructions in CSC 500 at CSUG\n\n")
     print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \n")
+    print("Program options are as follows:")
+    print("a - add item to cart")
+    print("r = remove item from cart")
+    print("c = change item quantity")
+    print("i = output items' descriptions")
+    print("o = output shopping cart")
+    print("q = quit")
+    print("? = print menu options\n\n")
 
 
+# TODO update getItemDetails to include description of item
+# REVIEW see if this can be streamlined/cleaned up
 def getItemDetails():
     """
     Prompts the user to fill out an items details and returns the completed item at the end
@@ -147,13 +158,63 @@ def getItemDetails():
 
     return newItem
 
+# TODO format menu printing
+def printMenu():
+    '''
+    Outputs a menu with all of the available options for the program
+    '''
+
+# TODO finish getCustomerName
+def getCustomerName():
+    '''
+    Prompts the customer for their name, verifies it's a proper input, and returns the name
+    '''
+    finalAnswer = False
+    inputLoop = True
+
+    print("What is your name?", end="\n>> ")
+    name = input()
+
+    while not finalAnswer:
+        if name == "":
+            print("Can you please type your name again?", end="\n>> ")
+            name = input()
+        else:
+            inputLoop = True
+            while inputLoop:
+                print("Is " + name + " correct? (Enter y for yes or n for no)", end="\n>> ")
+                userChoice = input()
+
+                if userChoice == "y" or userChoice == "yes":
+                    finalAnswer = True
+                    inputLoop = False
+                elif userChoice == "n" or userChoice == "no":
+                    inputLoop = False
+                    name = ""
+                else:
+                    print("I didn't understand your choice")
+        
+    return name
+
 #!SECTION
 
 # SECTION - Main
 
 if __name__ == "__main__":
 
+    # Get customer name and current date to create shopping cart
+    now = datetime.now()
+    curDate = now.strftime("%B %d, %Y")
+
     welcomeMessage()
+
+    custName = getCustomerName()
+
+    cart = ShoppingCart(custName, curDate)
+
+    # Handle input
+    
+
 
     print("---First Item---")
     item1 = getItemDetails()
