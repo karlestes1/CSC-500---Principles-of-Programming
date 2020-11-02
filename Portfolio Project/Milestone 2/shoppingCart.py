@@ -28,9 +28,18 @@ class ItemToPurchase:
 
     # Methods
 
-    # Prints out the current cost of the item
     def printItemCost(self):
+        '''
+        Outputs the item name, quantitiy, and cost to the console
+        '''
         print(self.quantity, self.name, "@ ${:.2f} = ${:.2f}".format(self.price, (self.price * self.quantity)))
+
+    def printItemDescriptions(self):
+        '''
+        Outputs the item name and description to the console
+        '''
+        print(self.name + ': ' + self.description)
+    
 
 class ShoppingCart:
 
@@ -38,7 +47,7 @@ class ShoppingCart:
     def __init__(self, customerName="none", date="January 1, 2020"):
         self.customerName = customerName
         self.curDate = date
-        self.cartItems = []
+        self.itemsInCart = []
 
     # Methods
 
@@ -47,6 +56,7 @@ class ShoppingCart:
         '''
         Adds the passed item to cartItems list
         '''
+        self.itemsInCart.append(itemToPurchase)
     
     def removeItem(self, itemName):
         '''
@@ -65,11 +75,25 @@ class ShoppingCart:
         '''
         Returns the quantity of all items in the cart
         '''
+        itemCount = 0
+
+        for item in self.itemsInCart:
+            itemCount = itemCount + item.quantity
+        
+        return itemCount
 
     def getCostOfCart(self):
         '''
         Calculates the total cost of all items in the cart and returns that amount
         '''
+        totalCost = 0.0
+
+        for item in self.itemsInCart:
+            totalCost = totalCost + (item.price * item.quantity)
+
+        return totalCost
+
+        
     
     def printTotal(self):
         '''
@@ -77,10 +101,26 @@ class ShoppingCart:
         If the cart is empty, outputs a message stating as such
         '''
 
+        print(self.customerName + "'s Shopping Cart - " + self.curDate)
+        print("Number of Items in Cart: " + str(self.getNumItemsInCart()))
+        
+        # Print all item costs
+        for item in self.itemsInCart:
+            item.printItemCost()
+
+        print("Total: ${:.2f}".format(self.getCostOfCart()))
+
     def printDescriptions(self):
         '''
         Outputs each item's description
         '''
+
+        print(self.customerName + "'s Shopping Cart - " + self.curDate)
+        print("Item Descriptions")
+        
+        for item in self.itemsInCart:
+            item.printItemDescriptions()
+
 
 #!SECTION
 
@@ -105,66 +145,65 @@ def welcomeMessage():
     print(r" ~    |____.   (____/\_)(_/ \__/(__)  (__)  (__)\_)__) \___/   \___)\_/\_/(__\_) (__) ")
     print("      o    o   \n")
     print("Developed by Karl Estes")
-    print("Created as per Portfolio Milestone 1 instructions in CSC 500 at CSUG\n\n")
+    print("Created as per Portfolio Milestone 2 instructions in CSC 500 at CSUG\n\n")
     print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \n")
-    print("Program options are as follows:")
-    print("a - add item to cart")
-    print("r = remove item from cart")
-    print("c = change item quantity")
-    print("i = output items' descriptions")
-    print("o = output shopping cart")
-    print("q = quit")
-    print("? = print menu options\n\n")
 
-
-# TODO update getItemDetails to include description of item
-# REVIEW see if this can be streamlined/cleaned up
 def getItemDetails():
     """
     Prompts the user to fill out an items details and returns the completed item at the end
     """
 
-    # Variables
-    newItem = ItemToPurchase()
     valid = False # Used to check if input is valid
 
     # Prompt the user for info
-    newItem.name = input('Please enter an item name as you want it to appear: ')
+    print("Please enter the name of the item", end="\n>>")
+    itemName = input()
 
-    print('Please enter the price of', newItem.name,  'in USD: $', end='')
+    print("Please enter an item description (Leave blank if there is none)", end="\n>> ")
+    itemDescription = input()
+    
+
+    print('How much does ' + itemName + ' cost?', end='\n>> (USD)$')
     newPrice = input()
 
     # Loop until valid input is reached
     while not valid:
         try:
-            newItem.price = float(newPrice)
+            itemPrice = float(newPrice)
             valid = True
         except ValueError:
-            print('(Invalid Input) Please enter the price of', newItem.name,  'in USD: $', end='')
+            print('(Invalid Input) How much does ' + itemName + ' cost?', end='\n>> (USD)$')
             newPrice = input()
 
     valid = False
-    print('Please enter the quantitiy of', newItem.name, ': ', end='')
+    print('How many ' + itemName + ' are you purchasing?', end="\n>> ")
     newQuantity = input()
 
     # Loop until valid input is reached
     while not valid:
         try:
-            newItem.quantity = int(newQuantity)
+            itemAmount = int(newQuantity)
             valid = True
         except ValueError:
-            print('(Invalid Input) Please enter the quantitiy of', newItem.name, ': ', end='')
+            print('(Invalid Input) How many ' + itemName + ' are you purchasing?', end="\n>> ")
             newQuantity = input()
 
-    return newItem
+    return ItemToPurchase(itemName, itemDescription, itemPrice, itemAmount)
 
-# TODO format menu printing
 def printMenu():
     '''
     Outputs a menu with all of the available options for the program
     '''
 
-# TODO finish getCustomerName
+    print("\n*** Program Menu ***")
+    print("a - add item to cart")
+    print("r - remove item from cart")
+    print("c - change item quantity")
+    print("i - output items' descriptions")
+    print("o - output shopping cart")
+    print("q - quit")
+    print("? - print menu options")
+
 def getCustomerName():
     '''
     Prompts the customer for their name, verifies it's a proper input, and returns the name
@@ -192,7 +231,7 @@ def getCustomerName():
                     inputLoop = False
                     name = ""
                 else:
-                    print("I didn't understand your choice")
+                    print("I didn't understand your choice. Please try again")
         
     return name
 
@@ -212,25 +251,34 @@ if __name__ == "__main__":
 
     cart = ShoppingCart(custName, curDate)
 
+    printMenu()
+    print("\n***** Begin Shopping *****\n")
+
     # Handle input
-    
+    while True:
+        print(custName + "@ShoppingCart >> ", end="")
+        userInput = input()
 
+        userInput = userInput.lower()
 
-    print("---First Item---")
-    item1 = getItemDetails()
-    print('\n---Second Item---')
-    item2 = getItemDetails()
-
-    totalItem1 = item1.price * item1.quantity
-    totalItem2 = item2.price * item2.quantity
-    
-    print("\n\n* * * * * * * * * * * * * *")
-    print("        Total Cost\n")
-    item1.printItemCost()
-    item2.printItemCost()
-    print("\nTotal = ${:.2f}".format(((item1.price * item1.quantity) + (item2.price * item2.quantity))))
-
-
+        # TODO actually call functions
+        if userInput == "a":
+            newItem = getItemDetails()
+            cart.addItem(newItem)
+        elif userInput == "r":
+            print("Need to implement")
+        elif userInput == "c":
+            print("Need to implement")
+        elif userInput == "i":
+            cart.printDescriptions()
+        elif userInput == "o":
+            cart.printTotal()
+        elif userInput == "q":
+            exit(0)
+        elif userInput == "?":
+            printMenu()
+        
+        print("\n")
 
 #!SECTION
 # %%
