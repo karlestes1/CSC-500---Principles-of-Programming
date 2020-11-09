@@ -16,7 +16,6 @@
 # SECTION - Imports and variables
 from os import system, name
 
-# TODO color codes
 RED = "\u001b[38;5;196m"
 BLUE = "\u001b[38;5;21m"
 YELLOW = "\u001b[38;5;226m"
