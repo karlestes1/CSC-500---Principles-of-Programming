@@ -11,8 +11,6 @@
 # of "ANCHOR", "TODO", "FIXME", "STUB", "NOTE", "REVIEW", "SECTION", and "LINK" are used in conjunction with 
 # this extension
 
-# TODO - Make sure test files are populated with data
-
 # SECTION - Imports and Global Variables
 from os import system, name
 import csv
@@ -98,11 +96,8 @@ def viewCourses():
             print("{:<8}\n".format(course))
             count = 0
 
-    print(RESET, end='')
+    print(RESET, end='\n\n')
         
-        
-
-# TODO - outline and complete function
 def displayCourseDetails(courseName, roomDict, instructorDict, meetingDict):
     '''
     Takes a course name and the three dictionaries containing course information
@@ -112,6 +107,38 @@ def displayCourseDetails(courseName, roomDict, instructorDict, meetingDict):
 
     Will display a message if missing course information exists or if the entered course cannot be found
     '''
+
+    # Search for course in all dicts
+    # Fill in missing info with ???
+    foundCourse = False
+
+    if courseName in roomDict:
+        courseRoom = roomDict[courseName]
+        foundCourse = True
+    else:
+        courseRoom = "???"
+
+    if courseName in instructorDict:
+        courseInstructor = instructorDict[courseName]
+        foundCourse = True
+    else:
+        courseInstructor = "???"
+
+    if courseName in meetingDict:
+        courseTime = meetingDict[courseName]
+        foundCourse = True
+    else:
+        courseTime = "???"
+
+    # If found, display results
+    # Else, print warning message
+    if foundCourse:
+        printInfo(f"\n* * * Course Info - {courseName}* * *")
+        print(BOLD + "{:<12} {:<12} {:<12}".format("Instructor", "Room Number", "Meeting Time"))
+        print("{:<12} {:<12} {:<12}\n".format(courseInstructor, courseRoom, courseTime) + RESET)
+    else:
+        printWarning(f"\n>> Could not find information for {courseName}\n")
+
 
 
 # !SECTION
@@ -170,7 +197,7 @@ if __name__ == "__main__":
 
     welcomeMessage()
     printInfo(">> Loading course data...")
-    loadAllFiles()
+    roomInfo, instructorInfo, meetingInfo = loadAllFiles()
     printInfo(">> Course data has been loaded")
 
     # Loop with user input until program is quit
@@ -190,8 +217,9 @@ if __name__ == "__main__":
         if userInput == "v" or userInput == "view":
             viewCourses()
         elif userInput == "i" or userInput == "info":
-            # TODO - prompt for coursename and search
-            printWarning("Need to implement")
+            printInfo("\nPlease the name of the course you want to view")
+            userInput = input(">> ")
+            displayCourseDetails(userInput, roomInfo, instructorInfo, meetingInfo)
         elif userInput == "?" or userInput == "help":
             printMenu()
         elif userInput == "q" or userInput == "quit":

@@ -56,10 +56,10 @@ ___
 - A python program which prompts the user to enter the name of two primary colors
 - Outputs what color the resulting mixture would produce
 
-<!-- TODO - Remove WIP label once the entire module has been completed and uploaded -->
-### (WIP) Module 6: [Course Information](Module%206/courseInfo.py)
+### Module 6: [Course Information](Module%206/courseInfo.py)
 - A python program which reads in a series of csv files containing course information
 - The user is able to view a list of all courses or specify detailed information about a single course
+- Course information is stored in separate csv files which are read in upon program start
 ___
 ## Portfolio Project
 The portfolio project is final project of the class and consists of two milestones and the final submission. The project centers around creating a shopping cart where users can buy items and it will calculate the total cost of the entire cart. Descriptions of each milestone and their requirements are listed below
