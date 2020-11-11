@@ -1,4 +1,4 @@
-# Option 2 CSC500 Module 5 - Mixing Colors 
+# Option 1 CSC500 Module 5 - Mixing Colors 
 # Created by Karl Estes
 # Created: Monday, October 27th, 2020
 
