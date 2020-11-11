@@ -57,7 +57,7 @@ ___
 - Outputs what color the resulting mixture would produce
 
 <!-- TODO - Remove WIP label once the entire module has been completed and uploaded -->
-### (WIP) Module 6: [Course Information](Module%20/courseInfo.py)
+### (WIP) Module 6: [Course Information](Module%206/courseInfo.py)
 - A python program which reads in a series of csv files containing course information
 - The user is able to view a list of all courses or specify detailed information about a single course
 ___
