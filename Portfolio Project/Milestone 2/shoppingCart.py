@@ -17,6 +17,8 @@ from datetime import datetime
 
 #SECTION - Classes
 
+# TODO make sure all functions have output messages
+
 class ItemToPurchase:
 
     # Default Constructor
@@ -51,7 +53,6 @@ class ShoppingCart:
 
     # Methods
 
-    # TODO actually write functions
     def addItem(self, itemToPurchase):
         '''
         Adds the passed item to cartItems list
@@ -63,13 +64,106 @@ class ShoppingCart:
         Takes the name of an item and searches for it in the cart\n
         If the item is found, removes it from the cart, otherwise, outputs message stating no item could be found
         '''
+        itemRemoved = False
 
-    def modifyItem(self, itemToModify):
+        for item in self.itemsInCart:
+
+            # Check if the item is in the list
+            if itemName == item.name:
+                self.itemsInCart.remove(item)
+                itemRemoved = True
+                break
+
+        if itemRemoved:
+            print("Sucessfully removed " + itemName + " from your cart")
+        else:
+            print("Could not find " + itemName + "in your cart. Nothing was removed")
+        
+
+
+
+    def modifyItem(self, itemName):
         '''
         Modifies an items description, price, and/or quantity\n
         Searches for an item by name in the cart and will prompt for what peices to modify\n
         If item cannot be found, outputs a message stating as such and nothing wil lbe modified
         '''
+        
+        itemFound = False
+
+        # Check to make sure item is in the list
+        for item in self.itemsInCart:
+            if itemName == item.name:
+                itemFound = True
+
+                print("Modify Menu")
+                print("n = Item Name")
+                print("d = Item Description")
+                print("p = Item Price")
+                print("q = Item Quantity")
+                print("c = Current Item Values")
+                print("e = exit modification")
+
+                # Loop for modificaiton of item
+                while True:
+                    print(custName + "@ShoppingCart (Modify) >> ", end="")
+                    userInput = input()
+
+                    userInput = userInput.lower()
+
+                    # TODO consolidate this into a separate function as per instructions
+                    if userInput == "n": # Change the item name
+                        print("(Current: " + item.name + ") Please enter a new item name", end="\n>> ")
+                        newName = input()
+
+                        # REVIEW consider putting confirmation here
+                        item.name = newName
+                        print("Item is now called " + newName)
+                    elif userInput == "d":
+                        print("(Current: " + item.description + ") Please enter a new item description", end="\n>> ")
+                        newDescription = input()
+                        
+                        # REVIEW consider putting confirmation here
+                        item.description = newDescription
+                        print(item.name + " description is now " + newDescription)
+                    elif userInput == "p":
+                        print("(Current: ${:.2f})".format(item.price) + " Please enter a new item price", end="\n>> $")
+                        userInput = input()
+
+                        try:
+                            newPrice = float(userInput)
+                            item.price = newPrice
+                            print("New item price is {:.2f}".format(newPrice))
+                        except ValueError:
+                            print("Invalid price entered. Please attempt modification again ")
+                        
+                    elif userInput == "q":
+                        print("(Current: {})".format(item.quantity) + " Please enter a new item quantity", end="\n>> ")
+                        userInput = input()
+
+                        try:
+                            newQuant = int(userInput)
+                            item.quantity = newQuant
+                            print("New item quantitity is {}".format(newQuant))
+                        except ValueError:
+                            print("Invalid quantitity entered. Please attempt modification again ")
+                    elif userInput == "c":
+                        print("Current Item details")
+                        print("Name: " + item.name)
+                        print("Description: " + item.description)
+                        print("Price: {:.2f}".format(item.price))
+                        print("Quantity: {}".format(item.quantity))
+                    elif userInput == "e":
+                        break
+
+                    print("\n")
+                break
+
+        if not itemFound:
+            print("Could not find " + itemName + " in your cart")
+
+                
+
 
     def getNumItemsInCart(self):
         '''
@@ -261,14 +355,20 @@ if __name__ == "__main__":
 
         userInput = userInput.lower()
 
-        # TODO actually call functions
+        # TODO consolidate this into a separate function as per instructions
         if userInput == "a":
             newItem = getItemDetails()
             cart.addItem(newItem)
         elif userInput == "r":
-            print("Need to implement")
+            print("Please enter the name of the item you'd like to remove from your cart", end="\n>> ")
+            userInput = input()
+
+            cart.removeItem(userInput)
         elif userInput == "c":
-            print("Need to implement")
+            print("Please enter the name of the item in your cart you'd like to modify", end="\n>> ")
+            userInput = input()
+
+            cart.modifyItem(userInput)
         elif userInput == "i":
             cart.printDescriptions()
         elif userInput == "o":
