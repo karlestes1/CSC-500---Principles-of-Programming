@@ -40,7 +40,7 @@ def readInCSV(filePath):
     The key-value pairs will be added to a dictionary which will be returned upon 
     function completion
 
-    Also adds courses to the global course list (TODO - create helper function to add things to the list w/o duplicates)
+    Also adds courses to the global course list
     '''
 
     entryDict = {}
@@ -57,7 +57,7 @@ def readInCSV(filePath):
                 # Add to the dictionary
                 try:
                     entryDict[row[0]] = row[1]
-                    allCourses.add(row[0]) 
+                    allCourses.add(str(row[0]))
                 except (RuntimeError, TypeError, NameError, IndexError):
                     printError(f">> Error reading in line {line_count} from {filePath}")
                 line_count += 1
@@ -71,6 +71,7 @@ def loadAllFiles():
 
     Returns all three dictionaries in the following order: roomInfo, instructorInfo, meetingTime
     '''
+
     roomInfo = readInCSV("roomInfo.csv")
     instructorInfo = readInCSV("instructorInfo.csv")
     meetingTime = readInCSV("meetingTime.csv")
@@ -81,11 +82,25 @@ def loadAllFiles():
 
 # SECTION - Program Actions
 
-# TODO - outline and complete function
 def viewCourses():
     '''
-    Pulls from the global courseList to display all courses for which there is information
+    Pulls from the global var allCourses to display all courses for which there is information
     '''
+    print(BOLD + "\n* * * All available courses * * * \n")
+    count = 0
+    s = sorted(allCourses)
+
+    for course in s:
+        if count < 3:
+            print("{:<8}".format(course), end='')
+            count += 1
+        else:
+            print("{:<8}\n".format(course))
+            count = 0
+
+    print(RESET, end='')
+        
+        
 
 # TODO - outline and complete function
 def displayCourseDetails(courseName, roomDict, instructorDict, meetingDict):
@@ -103,7 +118,6 @@ def displayCourseDetails(courseName, roomDict, instructorDict, meetingDict):
 
 # SECTION - Extra/Helper Functions
 
-# TODO - figure out what print functions for warning, error, title, etc are needed and write them
 def printWarning(stringToPrint):
     print(WARNING + str(stringToPrint) + RESET)
 
@@ -151,7 +165,6 @@ def printMenu():
 
 # SECTION - Main
 
-# TODO - define main
 
 if __name__ == "__main__":
 
@@ -162,7 +175,7 @@ if __name__ == "__main__":
 
     # Loop with user input until program is quit
     while True:
-        print(BOLD + ">> " + RESET, end='') # TODO - Make arrows bold
+        print(BOLD + ">> " + RESET, end='')
         userInput = input()
 
         '''
@@ -184,7 +197,6 @@ if __name__ == "__main__":
         elif userInput == "q" or userInput == "quit":
             exit(0)
         else:
-            # TODO - print warning message (make warning function first)
             printWarning(">> Invalid Input - Please try again")
 
 
