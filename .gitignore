@@ -1,2 +1,5 @@
 # Gitignore
 .DS_Store
+
+# File I use for color testing
+colorTesting.py
