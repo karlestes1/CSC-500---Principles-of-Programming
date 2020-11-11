@@ -11,12 +11,17 @@
 # of "ANCHOR", "TODO", "FIXME", "STUB", "NOTE", "REVIEW", "SECTION", and "LINK" are used in conjunction with 
 # this extension
 
+# TODO - Make sure test files are populated with data
+
 # SECTION - Imports and Global Variables
 from os import system, name
 
 allCourses = [] # Will contain a list of all available courses sorted by course title
 
-# TODO - Decide what colors are needed and make global variables
+RESET = "\u001b[0m"
+WARNING = "u\001b[38;5;11m"
+ERROR = "u\001b[38;5;196m"
+BOLD = "\u001b[38;5;15m"
 
 
 # !SECTION
@@ -66,6 +71,8 @@ def displayCourseDetails(courseName, roomDict, instructorDict, meetingDict):
 
 # TODO - figure out what print functions for warning, error, title, etc are needed and write them
 
+# TODO - write loader function to load all files on program load
+
 # TODO - write welcome function
 def welcomeMessage():
     '''
@@ -79,6 +86,38 @@ def welcomeMessage():
 # SECTION - Main
 
 # TODO - define main
+
+if __name__ == "__main__":
+
+    # TODO - call welcome message function
+
+    # Loop with user input until program is quit
+    while True:
+        print(">> ", end='') # TODO - Make arrows bold
+        userInput = input()
+
+        '''
+        Menu choices include:
+
+        v/view to view all courses
+        i/info to view course info
+            - will prompt for course name after selecting
+        q/quit to exit program
+        ?/help to print menu commands
+        '''
+        if userInput == "v" or userInput == "view":
+            viewCourses()
+        elif userInput == "i" or userInput == "info":
+            # TODO - prompt for coursename and search
+            print("Need to implement")
+        elif userInput == "?" or userInput == "help":
+            # TODO - print menu
+            print("Need to implement")
+        elif userInput == "q" or userInput == "quit":
+            exit(0)
+        else:
+            # TODO - print warning message (make warning function first)
+            print("Need to implement")
 
 
 
