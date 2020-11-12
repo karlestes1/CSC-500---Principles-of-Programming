@@ -2,22 +2,30 @@
 # Created by Karl Estes
 # Created: Tuesday, October 6th, 2020
 
-# TODO update this description
-# This milestone program prompts the user to enter two item names, prices, and quantities of the items
-# It then outputs the information and the cost of the two items
+# This milestone program simulates shopping - but virtually. The user is able to add or removes item from a cart,
+# modify item traits (i.e. description, price, quantity), and view current items in the cart. The view modes are
+# available: one allows you to view all of the items and their descriptions, and the other will show item cost and
+# quantity, and it will output the total cose of the shopping cart
 
 # I am using the Comment Anchors extension for Visual Studio Code which utilizes specific keywords
 # to allow for quick navigation around the file by creating sections and anchor points. Any use
 # of "ANCHOR", "TODO", "FIXME", "STUB", "NOTE", "REVIEW", "SECTION", and "LINK" are used in conjunction with 
 # this extension
 
+# SECTION - Imports, Constants, and Globals
+
 #Import Statements 
 from os import system, name
 from datetime import datetime
 
+# REVIEW - Look into adding color messages like other programs
+# NOTE - Perhaps this is a final milestone feature?
+
+# !SECTION
+
 #SECTION - Classes
 
-# TODO make sure all functions have output messages
+# REVIEW - Consider adding confirmation outputs to each function
 
 class ItemToPurchase:
 
@@ -61,7 +69,8 @@ class ShoppingCart:
     
     def removeItem(self, itemName):
         '''
-        Takes the name of an item and searches for it in the cart\n
+        Takes the name of an item and searches for it in the cart
+
         If the item is found, removes it from the cart, otherwise, outputs message stating no item could be found
         '''
         itemRemoved = False
@@ -84,8 +93,10 @@ class ShoppingCart:
 
     def modifyItem(self, itemName):
         '''
-        Modifies an items description, price, and/or quantity\n
-        Searches for an item by name in the cart and will prompt for what peices to modify\n
+        Modifies an items description, price, and/or quantity
+
+        Searches for an item by name in the cart and will prompt for what peices to modify
+
         If item cannot be found, outputs a message stating as such and nothing wil lbe modified
         '''
         
@@ -111,7 +122,6 @@ class ShoppingCart:
 
                     userInput = userInput.lower()
 
-                    # TODO consolidate this into a separate function as per instructions
                     if userInput == "n": # Change the item name
                         print("(Current: " + item.name + ") Please enter a new item name", end="\n>> ")
                         newName = input()
@@ -192,6 +202,7 @@ class ShoppingCart:
     def printTotal(self):
         '''
         Outputs the total of objects in the cart
+
         If the cart is empty, outputs a message stating as such
         '''
 
@@ -221,7 +232,8 @@ class ShoppingCart:
 #SECTION - Program Functions
 def welcomeMessage():
     """
-    Prints a welcome message when the program starts\n
+    Prints a welcome message when the program starts
+
     Also clears the console on program start
     """
 
@@ -250,7 +262,7 @@ def getItemDetails():
     valid = False # Used to check if input is valid
 
     # Prompt the user for info
-    print("Please enter the name of the item", end="\n>>")
+    print("Please enter the name of the item", end="\n>> ")
     itemName = input()
 
     print("Please enter an item description (Leave blank if there is none)", end="\n>> ")
@@ -284,15 +296,15 @@ def getItemDetails():
 
     return ItemToPurchase(itemName, itemDescription, itemPrice, itemAmount)
 
-def printMenu():
+def printCommands():
     '''
     Outputs a menu with all of the available options for the program
     '''
 
-    print("\n*** Program Menu ***")
+    print("\n*** Program Commands ***")
     print("a - add item to cart")
     print("r - remove item from cart")
-    print("c - change item quantity")
+    print("c - change/modify an item")
     print("i - output items' descriptions")
     print("o - output shopping cart")
     print("q - quit")
@@ -329,33 +341,22 @@ def getCustomerName():
         
     return name
 
-#!SECTION
+def printMenu(cart):
+    '''
+    Print menu will handle the command flow for the program. It is called printMenu as per the assignment instructions
 
-# SECTION - Main
+    It will handle printing the menu, taking user input, and calling the necessary functions
 
-if __name__ == "__main__":
+    Takes a shopping cart object as a parameter
+    '''
 
-    # Get customer name and current date to create shopping cart
-    now = datetime.now()
-    curDate = now.strftime("%B %d, %Y")
 
-    welcomeMessage()
-
-    custName = getCustomerName()
-
-    cart = ShoppingCart(custName, curDate)
-
-    printMenu()
-    print("\n***** Begin Shopping *****\n")
-
-    # Handle input
     while True:
-        print(custName + "@ShoppingCart >> ", end="")
+        print(cart.customerName + "@ShoppingCart >> ", end="")
         userInput = input()
 
         userInput = userInput.lower()
 
-        # TODO consolidate this into a separate function as per instructions
         if userInput == "a":
             newItem = getItemDetails()
             cart.addItem(newItem)
@@ -376,9 +377,36 @@ if __name__ == "__main__":
         elif userInput == "q":
             exit(0)
         elif userInput == "?":
-            printMenu()
+            printCommands()
         
         print("\n")
+
+
+
+#!SECTION
+
+# SECTION - Main
+
+if __name__ == "__main__":
+
+    # Get customer name and current date to create shopping cart
+    now = datetime.now()
+    curDate = now.strftime("%B %d, %Y")
+
+    welcomeMessage()
+
+    custName = getCustomerName()
+
+    cart = ShoppingCart(custName, curDate)
+
+    
+    print(f"\nWelcome {custName}!")
+    printCommands()
+    print("\n***** Begin Shopping *****\n")
+
+    # Handle input
+    
+    printMenu(cart)
 
 #!SECTION
 # %%
