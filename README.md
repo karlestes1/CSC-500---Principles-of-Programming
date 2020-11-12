@@ -75,4 +75,17 @@ The portfolio project is final project of the class and consists of two mileston
     - A method to print the item cost
 - Prompt the user to enter the price and quantity of two items, and output the total cost to the screen
 
-<!-- TODO - Update milestone section with Milestone 2 (WIP) information-->
+### [Milestone 2](Portfolio%20Project/Milestone%202/shoppingCart.py)
+- Addition of a class called ShoppingCart with the following:
+    - A parameterized constructor
+    - Attributes
+        - customer name (string)
+        - current date (string)
+        - items in cart (list)
+    - A method to add items to the cart
+    - A method to remove items from the cart
+    - A method to modify item detials once in the cart
+    - A method to get the number of items (total quantity) in the cart
+    - A method to calculate the total cost of the cart
+    - Methods to output all items in the cart and all item descriptions
+- The program will continue to execute until the users explicitly quits
