@@ -18,7 +18,7 @@ The textbook for this class was specially designed and is hosted on zyBooks to a
 <br />
 
 ### VS Code Python Extension
-I am using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studion Code which includes the ability to create python cells which can be individually run in an interactive window. The syntax to create a cell is as follows: 
+I am using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code which includes the ability to create python cells which can be individually run in an interactive window. The syntax to create a cell is as follows: 
 ```python
 #%%
 ```
