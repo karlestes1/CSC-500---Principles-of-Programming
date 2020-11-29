@@ -89,3 +89,7 @@ The portfolio project is final project of the class and consists of two mileston
     - A method to calculate the total cost of the cart
     - Methods to output all items in the cart and all item descriptions
 - The program will continue to execute until the users explicitly quits
+
+### [Final](Portfolio%20Project/Final/shoppingCart.py)
+- Structure is the same as Milestone 2
+- Did some reformatting of console output for final submission
