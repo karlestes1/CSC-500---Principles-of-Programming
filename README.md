@@ -1,8 +1,8 @@
 # CSC 500 - Principles of Programming
 
-**Disclaimer:** These project were built as a requirement for CSC 500: Principles of Programming through Colorado State University Global under the instruction of Dr. Lori Farr. Unless otherwise noted, all programs were created to adhere to explicit guidelines as outlined in the assignment requirements I was given. Descriptions of each [programming assignment](#programming-assignments) and the [portfolio project](#portfolio-project) can be found below.
+**Disclaimer:** These projects were built as a requirement for CSC 500: Principles of Programming at Colorado State University Global under the instruction of Dr. Lori Farr. Unless otherwise noted, all programs were created to adhere to explicit guidelines as outlined in the assignment requirements I was given. Descriptions of each [programming assignment](#programming-assignments) and the [portfolio project](#portfolio-project) can be found below.
 
-*****This repository is actively being updated and will be archived upon my completion of the class*****
+*****This repository was archived after completion of the class*****
 ___
 
 ### Languages and Tools
