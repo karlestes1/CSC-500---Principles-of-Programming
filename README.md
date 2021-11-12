@@ -6,12 +6,11 @@
 ___
 
 ### Languages and Tools
-<!--TODO add links to each icons site-->
-<img align="left" height="32" width="32" src="https://cdn.svgporn.com/logos/python.svg" />
-<img align="left" height="32" width="32" src="https://www.psych.mcgill.ca/labs/mogillab/anaconda2/lib/python2.7/site-packages/anaconda_navigator/static/images/anaconda-icon-512x512.png" />
-<img align="left" height="32" width="32" src="https://cdn.svgporn.com/logos/visual-studio-code.svg" />
-<img align="left" height="32" width="32" src="https://cdn.svgporn.com/logos/git-icon.svg" />
-<img align="left" height="32" width="32" src="https://cdn.svgporn.com/logos/gitkraken.svg" />
+[<img align="left" height="32" width="32" src="https://cdn.svgporn.com/logos/python.svg" />](https://www.python.org)
+[<img align="left" height="32" width="32" src="https://www.psych.mcgill.ca/labs/mogillab/anaconda2/lib/python2.7/site-packages/anaconda_navigator/static/images/anaconda-icon-512x512.png" />](https://www.anaconda.com/pricing)
+[<img align="left" height="32" width="32" src="https://cdn.svgporn.com/logos/visual-studio-code.svg" />](https://code.visualstudio.com)
+[<img align="left" height="32" width="32" src="https://cdn.svgporn.com/logos/git-icon.svg" />](https://git-scm.com)
+[<img align="left" height="32" width="32" src="https://cdn.svgporn.com/logos/gitkraken.svg" />](https://www.gitkraken.com)
 <br />
 
 ### Textbook
@@ -26,7 +25,9 @@ I am using the [Python extension](https://marketplace.visualstudio.com/items?ite
 Any line with these three characters on it denotes the beginning of a python cell and is included due to the utilization of the python extension.
 
 ### VS Code Comment Anchors Extension
-I am also using the [Comment Anchors extension](https://marketplace.visualstudio.com/items?itemName=ExodiusStudios.comment-anchors) for Visual Studio Code which places anchors within comments to allow for easy navigation and the ability to track TODO's, code reviews, etc. 
+I am also using the [Comment Anchors extension](https://marketplace.visualstudio.com/items?itemName=ExodiusStudios.comment-anchors) for Visual Studio Code which places anchors within comments to allow for easy navigation and the ability to track TODO's, code reviews, etc. You may find the following tags intersperesed throughout the code in this repository: ANCHOR, TODO, FIXME, STUB, NOTE, REVIEW, SECTION, LINK, CELL, FUNCTION, CLASS
+
+For anyone using this extension, please note that CELL, FUNCTION, and CLASS are tags I defined myself. 
 <br />
 
 ___
