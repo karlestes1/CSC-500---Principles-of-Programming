@@ -2,13 +2,12 @@
 
 **Disclaimer:** These projects were built as a requirement for CSC 500: Principles of Programming at Colorado State University Global under the instruction of Dr. Lori Farr. Unless otherwise noted, all programs were created to adhere to explicit guidelines as outlined in the assignment requirements I was given. Descriptions of each [programming assignment](#programming-assignments) and the [portfolio project](#portfolio-project) can be found below.
 
-*****This repository was archived after completion of the class*****
+*****This repository was archived upon completion of the class*****
 ___
 
 ### Languages and Tools
 <!--TODO add links to each icons site-->
 <img align="left" height="32" width="32" src="https://cdn.svgporn.com/logos/python.svg" />
-<img align="left" height="32" width="32" src="https://cdn.svgporn.com/logos/github-icon.svg" />
 <img align="left" height="32" width="32" src="https://www.psych.mcgill.ca/labs/mogillab/anaconda2/lib/python2.7/site-packages/anaconda_navigator/static/images/anaconda-icon-512x512.png" />
 <img align="left" height="32" width="32" src="https://cdn.svgporn.com/logos/visual-studio-code.svg" />
 <img align="left" height="32" width="32" src="https://cdn.svgporn.com/logos/git-icon.svg" />
